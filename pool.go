@@ -90,7 +90,7 @@ func (p *pool) Close() {
 	close(p.sync)
 }
 
-func (p *pool) returnToPool(po *particle) {
+func (p *pool) disappear(po *particle) {
 	done := make(chan struct{})
 	p.sync <- func() {
 		if p.particles[po.slotId] == po {

@@ -67,7 +67,7 @@ func newParticle(id Id, slotId int, states [2]bool, pool *pool) *particle {
 func (p *particle) read() bool {
 	if p.flags&flags_read == 0 {
 		p.flags |= flags_read
-		p.pool.returnToPool(p)
+		p.pool.disappear(p)
 	}
 	return p.flags&flags_up == flags_up
 }
