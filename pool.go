@@ -100,7 +100,7 @@ func (p *pool) returnToPool(po *particle) {
 	p.sync <- func() {
 		if p.particles[po.slotId] == po {
 			// replace the particle with one that has the same quark states
-			// so that we don't chain the composition of the pool
+			// so that we don't change the composition of the pool
 			p.particles[po.slotId] = newParticle(Id(p.next), po.slotId, [2]bool{po.quarks[0].up, po.quarks[1].up}, p)
 			p.next++
 		}
