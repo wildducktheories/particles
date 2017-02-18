@@ -5,11 +5,6 @@ import (
 	"math/rand"
 )
 
-const (
-	mother   = 1 / 3.0
-	daughter = 1 / 2.0
-)
-
 type pool struct {
 	particles []*particle
 	next      Id
