@@ -56,16 +56,16 @@ The options that can be passed to the command are:
       -verbose
             Be verbose about statistics
 
-The observed probabilities for each combination of parameters are:
+The expected probabilities for each combination of parameters are:
 
     process-A   process-B   match-type  probability
     -----------------------------------------------
-    particle    particle    quark       20%
-    particle    particle    particle    33%
-    quark       particle    quark       33%
-    quark       particle    particle    50%
-    quark       quark       quark       50%
-    quark       quark       particle    67%
+    particle    particle    quark       1/5
+    particle    particle    particle    1/3
+    particle    quark       quark       1/3
+    quark       particle    particle    1/2
+    quark       quark       quark       1/2
+    quark       quark       particle    2/3
 
 # NOTES
 
