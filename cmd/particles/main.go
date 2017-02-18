@@ -82,7 +82,7 @@ func main() {
 		}
 		if total == verboseLimit {
 			if verbose {
-				log.Printf("n=%d, total=%d, true=%d, ratio=%f", size, total, totalTrue, float64(totalTrue)/float64(total))
+				log.Printf("n=%d, total=%d, happy=%d, ratio=%f", size, total, totalTrue, float64(totalTrue)/float64(total))
 			}
 			verboseLimit = int(float64(verboseLimit) * growth)
 		}
@@ -92,5 +92,5 @@ func main() {
 		}
 	}
 
-	log.Printf("n=%d, total=%d, true=%d, ratio=%f", size, total, totalTrue, float64(totalTrue)/float64(total))
+	log.Printf("n=%d, total=%d, happy=%d, ratio=%f", size, total, totalTrue, float64(totalTrue)/float64(total))
 }
