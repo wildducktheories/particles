@@ -80,4 +80,6 @@ those problems and this system is:
 * mother/family <=> particle
 * girl <=> up-quark
 * boy  <=> down-quark
+* boy-girl family <=> calm particle
+* girl-girl family <=> happy particle
 
