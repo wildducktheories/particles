@@ -10,19 +10,19 @@ import (
 
 func main() {
 
-	size := 10000
-	matchType := "particle"
-	verbose := false
-	maxMatches := 0
 	processA := "particle"
 	processB := "quark"
+	matchType := "particle"
+	size := 10000
+	maxMatches := 0
+	verbose := false
 
-	flag.IntVar(&size, "pool-size", 10000, "Size of the particle pool.")
-	flag.StringVar(&matchType, "match-type", "particle", "Type of match: particle or quark")
-	flag.BoolVar(&verbose, "verbose", false, "Be verbose about statistics")
-	flag.IntVar(&maxMatches, "max-matches", 1000, "Maximum number of matches")
 	flag.StringVar(&processA, "process-A", "quark", "Sampling process A: particle or quark")
 	flag.StringVar(&processB, "process-B", "particle", "Sampling process B: particle or quark")
+	flag.StringVar(&matchType, "match-type", "particle", "Type of match: particle or quark")
+	flag.IntVar(&size, "pool-size", 10000, "Size of the particle pool.")
+	flag.IntVar(&maxMatches, "max-matches", 1000, "Maximum number of matches")
+	flag.BoolVar(&verbose, "verbose", false, "Be verbose about statistics")
 	flag.Parse()
 
 	particles.Verbose = verbose
