@@ -83,3 +83,12 @@ those problems and this system is:
 * boy-girl family <=> calm particle
 * girl-girl family <=> happy particle
 
+The amusing this about the linked problem and the simulated universe is that you
+one can have two sampling processes which accurately describe the world as they 
+have sampled it yet when the output of two different processes make conflicting 
+probabilistic statements about the state of a given object, it isn't
+clear which (if either) is to be believed. It turns out that the means by which
+observations from different processes are matched is extremely relevant to the
+characteristation of the probability of observations emerging from the
+matching process - the probability can range from 20% to 67% depending on what
+combination of sampling and matching processes are used.
