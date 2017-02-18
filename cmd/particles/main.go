@@ -29,8 +29,6 @@ func main() {
 
 	pool := particles.NewPool(size)
 
-	var fC particles.MatcherProcess
-
 	observerProcess := func(n string) particles.ObserverProcess {
 		switch n {
 		case "particle":
@@ -46,20 +44,22 @@ func main() {
 
 	fA := observerProcess(processA)
 	fB := observerProcess(processB)
-
-	switch matchType {
-	case "particle":
-		fC = particles.ProcessFromMatcher(particles.ParticleMatcher)
-	case "quark":
-		fC = particles.ProcessFromMatcher(particles.QuarkMatcher)
-	case "a-side":
-		fC = particles.ProcessFromMatcher(particles.ASideMatcher)
-	case "b-side":
-		fC = particles.ProcessFromMatcher(particles.BSideMatcher)
-	default:
-		flag.PrintDefaults()
-		os.Exit(1)
-	}
+	fC := func() particles.MatcherProcess {
+		switch matchType {
+		case "particle":
+			return particles.ProcessFromMatcher(particles.ParticleMatcher)
+		case "quark":
+			return particles.ProcessFromMatcher(particles.QuarkMatcher)
+		case "a-side":
+			return particles.ProcessFromMatcher(particles.ASideMatcher)
+		case "b-side":
+			return particles.ProcessFromMatcher(particles.BSideMatcher)
+		default:
+			flag.PrintDefaults()
+			os.Exit(1)
+		}
+		panic("unreachable")
+	}()
 
 	done := make(chan struct{})
 	ac := make(chan particles.Observation)
