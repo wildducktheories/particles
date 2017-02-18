@@ -14,6 +14,11 @@ const (
 	flags_up flags = flags_up0 | flags_up1
 )
 
+// A auark has a state and an 'identity' for matching purposes.
+type quark struct {
+	up bool // the state of the quark. 'up' or 'down'
+}
+
 // A particle consists of two quarks. It has an id used for tracing
 // and a slotId used for space reclamation purposes. It has some
 // flags to simplfy certain tests.
@@ -53,8 +58,6 @@ func newParticle(id Id, slotId int, states [2]bool, pool *pool) *particle {
 		q := &quark{}
 		p.quarks[i] = q
 		q.up = states[i]
-		q.index = i
-		q.particle = p
 		if q.up {
 			p.flags |= 1 << uint(i)
 		}
