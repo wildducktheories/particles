@@ -14,7 +14,7 @@ package particles
 type observation struct {
 	particle *particle // the observed particle
 	quark    *quark    // the observed quark
-	process  *process  // the observable probability that resolve will return true
+	process  *process  // the process that generated the observation
 }
 
 // Probability returns that probability that Read() will return true.
@@ -38,14 +38,13 @@ func ParticleMatcher(a Observation, b Observation) Observation {
 	aO := a.(*observation)
 	bO := b.(*observation)
 
-	p := matchingProcess(aO.process, bO.process, false)
-
-	//log.Printf("a/b = %d/%d", aO.particle.id, bO.particle.id)
 	if aO.particle == bO.particle {
+		p := matchingProcess(aO.process, bO.process, false)
+
 		cO := &observation{
 			particle: aO.particle,
 			quark:    aO.quark,
-			process:  p, // FIXME: need to combine inputs
+			process:  p,
 		}
 		if flip() {
 			cO.quark = bO.quark
@@ -60,12 +59,14 @@ func ParticleMatcher(a Observation, b Observation) Observation {
 func QuarkMatcher(a Observation, b Observation) Observation {
 	aO := a.(*observation)
 	bO := b.(*observation)
-	p := matchingProcess(aO.process, bO.process, true)
+
 	if aO.quark == bO.quark {
+		p := matchingProcess(aO.process, bO.process, true)
+
 		cO := &observation{
 			particle: aO.particle,
 			quark:    aO.quark,
-			process:  p, // FIXME: need to combine inputs
+			process:  p,
 		}
 		return cO
 	} else {
