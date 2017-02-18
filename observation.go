@@ -73,3 +73,11 @@ func QuarkMatcher(a Observation, b Observation) Observation {
 		return nil
 	}
 }
+
+func ASideMatcher(a Observation, b Observation) Observation {
+	return a
+}
+
+func BSideMatcher(a Observation, b Observation) Observation {
+	return b
+}

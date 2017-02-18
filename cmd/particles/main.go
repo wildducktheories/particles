@@ -29,7 +29,6 @@ func main() {
 
 	pool := particles.NewPool(size)
 
-	var fA, fB particles.ObserverProcess
 	var fC particles.MatcherProcess
 
 	observerProcess := func(n string) particles.ObserverProcess {
@@ -45,14 +44,18 @@ func main() {
 		panic("unreachable")
 	}
 
-	fA = observerProcess(processA)
-	fB = observerProcess(processB)
+	fA := observerProcess(processA)
+	fB := observerProcess(processB)
 
 	switch matchType {
 	case "particle":
 		fC = particles.ProcessFromMatcher(particles.ParticleMatcher)
 	case "quark":
 		fC = particles.ProcessFromMatcher(particles.QuarkMatcher)
+	case "a-side":
+		fC = particles.ProcessFromMatcher(particles.ASideMatcher)
+	case "b-side":
+		fC = particles.ProcessFromMatcher(particles.BSideMatcher)
 	default:
 		flag.PrintDefaults()
 		os.Exit(1)
