@@ -84,7 +84,7 @@ func main() {
 			continue
 		}
 		total++
-		if o.Read() {
+		if o.Confirm() {
 			totalTrue++
 		}
 		if total == verboseLimit {

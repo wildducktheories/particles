@@ -9,7 +9,7 @@ type flags uint8
 const (
 	flags_up0 flags = 1 << iota
 	flags_up1
-	flags_read
+	flags_confirmed
 
 	flags_up flags = flags_up0 | flags_up1
 )
@@ -64,15 +64,15 @@ func newParticle(id Id, slotId int, states [2]bool, pool *pool) *particle {
 }
 
 // read the particle and render unobservable in the future
-func (p *particle) read() bool {
-	if p.flags&flags_read == 0 {
-		p.flags |= flags_read
+func (p *particle) confirm() bool {
+	if p.flags&flags_confirmed == 0 {
+		p.flags |= flags_confirmed
 		p.pool.disappear(p)
 	}
 	return p.flags&flags_up == flags_up
 }
 
 // answer if the particle has been read yet
-func (p *particle) isRead() bool {
-	return p.flags&flags_read != 0
+func (p *particle) isConfirmed() bool {
+	return p.flags&flags_confirmed != 0
 }

@@ -30,7 +30,7 @@ type Pool interface {
 // method is called at which point it becomes 0 or 1.
 type Observation interface {
 	Probability() float64
-	Read() bool
+	Confirm() bool
 }
 
 // A Matcher matches two observations and generates a new observation or returns nil

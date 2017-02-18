@@ -17,11 +17,11 @@ type observation struct {
 	process  *process  // the process that generated the observation
 }
 
-// Probability returns that probability that Read() will return true.
+// Probability returns that probability that Confirm() will return true.
 func (o *observation) Probability() float64 {
-	if !o.particle.isRead() {
+	if !o.particle.isConfirmed() {
 		return o.process.probability
-	} else if o.particle.read() {
+	} else if o.particle.confirm() {
 		return 1.0
 	} else {
 		return 0
@@ -29,8 +29,8 @@ func (o *observation) Probability() float64 {
 }
 
 // Read reads the state of the particle's other quark and returns true if it in the up state.
-func (o *observation) Read() bool {
-	return o.particle.read()
+func (o *observation) Confirm() bool {
+	return o.particle.confirm()
 }
 
 // Matches two Observations on their particles (only)
