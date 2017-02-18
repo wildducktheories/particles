@@ -28,6 +28,7 @@ func main() {
 	particles.Verbose = verbose
 
 	pool := particles.NewPool(size)
+	defer pool.Close()
 
 	observerProcess := func(n string) particles.ObserverProcess {
 		switch n {
