@@ -76,6 +76,13 @@ func main() {
 	totalTrue := 0
 
 	for o := range cd {
+		if total >= maxMatches {
+			if done != nil {
+				close(done)
+				done = nil
+			}
+			continue
+		}
 		total++
 		if o.Read() {
 			totalTrue++
@@ -85,10 +92,6 @@ func main() {
 				log.Printf("n=%d, total=%d, happy=%d, ratio=%f", size, total, totalTrue, float64(totalTrue)/float64(total))
 			}
 			verboseLimit = int(float64(verboseLimit) * growth)
-		}
-		if total >= maxMatches && done != nil {
-			close(done)
-			done = nil
 		}
 	}
 
