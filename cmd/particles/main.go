@@ -74,7 +74,7 @@ func main() {
 	verboseLimit := 10
 	growth := 1.2
 	total := 0
-	totalTrue := 0
+	happy := 0
 
 	for o := range cd {
 		if total >= maxMatches {
@@ -86,15 +86,15 @@ func main() {
 		}
 		total++
 		if o.Confirm() {
-			totalTrue++
+			happy++
 		}
 		if total == verboseLimit {
 			if verbose {
-				log.Printf("n=%d, total=%d, happy=%d, ratio=%f", size, total, totalTrue, float64(totalTrue)/float64(total))
+				log.Printf("n=%d, total=%d, happy=%d, ratio=%f", size, total, happy, float64(happy)/float64(total))
 			}
 			verboseLimit = int(float64(verboseLimit) * growth)
 		}
 	}
 
-	log.Printf("n=%d, total=%d, happy=%d, ratio=%f", size, total, totalTrue, float64(totalTrue)/float64(total))
+	log.Printf("n=%d, total=%d, happy=%d, ratio=%f", size, total, happy, float64(happy)/float64(total))
 }
