@@ -97,8 +97,9 @@ The expected probabilities and resulting matching process for each combination o
 
 # NOTES
 
-This simulation was inspired in part by a [variant](https://blog.jonseymour.net/the-boy-girl-paradox-with-a-twist) of the Boy-Girl paradox. The analogy between
-those problems and this system is:
+This simulation was inspired in part by a [variant](https://blog.jonseymour.net/the-boy-girl-paradox-with-a-twist) of the Boy-Girl paradox and ultimately by the
+well-known [Boy or Girl paradox](https://en.wikipedia.org/wiki/Boy_or_Girl_paradox).
+The analogy between those problems and this system is:
 
 * mother/family <=> particle
 * girl <=> up-quark
