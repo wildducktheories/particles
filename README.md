@@ -45,15 +45,17 @@ one of its up-quarks.
 
 # QUESTIONS
 
-**Q1.** Suppose you match two observations of the same particle, one each from the
-sample-quark process and  from the sample-particle process, each stating a
-different probability, 1/2 and 1/3 respectively, for the question: "is the
-described particle a happy particle?". Since the observations contradict each
-other which observation, if any, do you believe?
+**Q1.** Suppose you match two observations of the same particle, one from the
+sample-quark process, one from the sample-particle process, each asserting a
+different probability, 1/2 and 1/3 respectively, that the observed
+particle is a 'happy' particle.
+
+Given the contradictory assertions made by the matching observations,
+which observation, if any, do you believe?
 
 **Q2.** Now you repeat the experiment in Q1 many times with matching observations
-of different particles. What is the probability that the observations emitted
-by the matching equipment are observations of happy particles?
+of many different particles. What is the probability that the observations emitted
+by the matching equipment are observations of 'happy' particles?
 
 # SIMULATOR
 
