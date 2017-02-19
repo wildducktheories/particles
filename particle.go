@@ -4,6 +4,7 @@ import (
 	"math/rand"
 )
 
+// flags is the type used to represent particle flags
 type flags uint8
 
 const (
@@ -14,7 +15,7 @@ const (
 	flags_up flags = flags_up0 | flags_up1
 )
 
-// A auark has a state and an 'identity' for matching purposes.
+// A quark has a state and an 'identity' for matching purposes.
 type quark struct {
 	up bool // the state of the quark. 'up' or 'down'
 }
@@ -24,9 +25,10 @@ type quark struct {
 // flags to simplfy certain tests.
 //
 // A particle is never directly observed - the most we know about
-// a particle is what we can observe via observations and what we
-// learn once an observation is read. Once this occurs the
-// underlying particle ceases to be directly observable.
+// a particle is what we can observe it via observations and what we
+// learn once an observation is confirmed. Once confirmation
+// occurs the particle is disappeared which means that no future
+// observations relating to this particle can be made.
 type particle struct {
 	quarks [2]*quark // the two quarks of the particle
 
@@ -66,7 +68,9 @@ func newParticle(id Id, slotId int, states [2]bool, pool *pool) *particle {
 	return p
 }
 
-// read the particle and render unobservable in the future
+// confirm if the particle is a 'happy' particle. calling this
+// method causes the particle to disappear, meaning that no
+// further observations can be made.
 func (p *particle) confirm() bool {
 	if p.flags&flags_confirmed == 0 {
 		p.flags |= flags_confirmed
@@ -75,7 +79,7 @@ func (p *particle) confirm() bool {
 	return p.flags&flags_up == flags_up
 }
 
-// answer if the particle has been read yet
+// isConfirmed answers true if the confirm() method has been called yet.
 func (p *particle) isConfirmed() bool {
 	return p.flags&flags_confirmed != 0
 }

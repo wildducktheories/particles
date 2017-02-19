@@ -5,6 +5,10 @@ import (
 	"math/rand"
 )
 
+// A pool represents a known number of particles with evenly
+// distributed number of quarks. The pool also contains 'sad'
+// particles, but these particles are not observable by the
+// sampling methods.
 type pool struct {
 	particles []*particle
 	next      Id
@@ -36,6 +40,12 @@ func NewPool(size int) Pool {
 	return pool
 }
 
+// SampleQuark samples all the up quarks in the pool and
+// returns an observation consisting of itself and the
+// parent particle.
+//
+// Observations returned by this method have a 1/2
+// probability of describing a happy particle.
 func (p *pool) SampleQuark() Observation {
 	for {
 		px := rand.Int31n(int32(len(p.particles) * 2))
@@ -54,6 +64,12 @@ func (p *pool) SampleQuark() Observation {
 	}
 }
 
+// SampleParticle samples all the particles in the pool
+// selects one of the particle's up-quarks and returns
+// an Observation describing both.
+//
+// Observations returned by this method have a 1/3
+// probability of describing a happy particle.
 func (p *pool) SampleParticle() Observation {
 	for {
 		px := rand.Int31n(int32(len(p.particles)))
@@ -85,11 +101,15 @@ func (p *pool) SampleParticle() Observation {
 	}
 }
 
+// Close shuts down the async goroutine.
 func (p *pool) Close() {
 	close(p.returned)
 	close(p.sync)
 }
 
+// disappear replaces an existing particle with a new particle
+// with matching quark-states. Existing observations can never match
+// the new particle.
 func (p *pool) disappear(po *particle) {
 	done := make(chan struct{})
 	p.sync <- func() {

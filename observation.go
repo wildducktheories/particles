@@ -74,10 +74,12 @@ func QuarkMatcher(a Observation, b Observation) Observation {
 	}
 }
 
+// ASideMatcher always returns the a-side of an match.
 func ASideMatcher(a Observation, b Observation) Observation {
 	return a
 }
 
+// ASideMatcher always returns the b-side of an match.
 func BSideMatcher(a Observation, b Observation) Observation {
 	return b
 }
