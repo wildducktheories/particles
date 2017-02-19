@@ -107,7 +107,7 @@ The analogy between those problems and this system is:
 * boy-girl family <=> calm particle
 * girl-girl family <=> happy particle
 
-The amusing this about the linked problem and the simulated universe is that you
+The amusing thing about the linked problem and the simulated universe is that you
 one can have two sampling processes which accurately describe the world as they
 have sampled it yet when the outputs of two different processes make conflicting
 probabilistic statements about the state of a given object, it isn't
