@@ -20,7 +20,7 @@ particle disappears and it is replaced by a particle with the same quark-state
 somewhere else close by - the replacement particle has no other discernible
 relationship to the replaced particle. This behaviour has annoyed physicists
 for a long time, because they haven't been able to isolate a pool of pure 'happy'
-particles to understand how they behave in an environment that unconstrained
+particles to understand how they behave in an environment that is unconstrained
 by neighbouring 'calm' particles.
 
 Particles can be pooled. Pools can be sampled by random sampling processes.
@@ -97,9 +97,9 @@ The expected probabilities and resulting matching process for each combination o
     U - observed up-quark
     u - unobserved up-quark
     d - unobserved down-quark
-    u1U2, U1u2 - two different observations of a single happy particle
-    dU4, U3d - two different observations of two different calm particles
-    xy, ..., xy - two different observations of the same kind of the same particle
+    u1U2 U1u2 - two different observations of a single happy particle
+    dU4 U3d - two different observations of two different calm particles
+    U3d U3d - two different observations the same particle
 
 # NOTES
 
